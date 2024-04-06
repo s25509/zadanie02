@@ -47,12 +47,12 @@ namespace LegacyApp
             }
 
             var age = CalculateAge(dateOfBirth);
-            return age >= 21;
+            return age >= Constants.RegistrationSettings.LegalAge;
         }
 
         private static bool ValidateUserCredit(User user)
         {
-            return !user.HasCreditLimit || user.CreditLimit >= 500;
+            return !user.HasCreditLimit || user.CreditLimit >= Constants.RegistrationSettings.MinimumCredit;
         }
 
         private static int CalculateAge(DateTime dateOfBirth)
@@ -68,7 +68,7 @@ namespace LegacyApp
         {
             var userCreditService = new UserCreditService();
             
-            if (client.Type == "VeryImportantClient")
+            if (client.Type == Constants.CreditTypes.VeryImportantClient)
             {
                 user.HasCreditLimit = false;
             }
@@ -76,9 +76,9 @@ namespace LegacyApp
             {
                 user.HasCreditLimit = true;
                 var creditLimit = userCreditService.GetCreditLimit(user.LastName, user.DateOfBirth);
-                if (client.Type == "ImportantClient")
+                if (client.Type == Constants.CreditTypes.ImportantClient)
                 {
-                    creditLimit *= 2;
+                    creditLimit *= Constants.RegistrationSettings.ImportantClientCreditMultiplier;
                 }
 
                 user.CreditLimit = creditLimit;
