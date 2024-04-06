@@ -11,7 +11,20 @@ public class UserServiceTests
         var service = new UserService();
 
         //Act
-        var result = service.AddUser(null, null, "kowalski@wp.pl", new DateTime(1980, 1, 1), 1);
+        var result = service.AddUser(null, "Kowalski", "kowalski@wp.pl", new DateTime(1980, 1, 1), 1);
+
+        //Assert
+        Assert.False(result);
+    }
+    
+    [Fact]
+    public void AddUser_Should_Return_False_When_Missing_LastName()
+    {
+        //Arrange
+        var service = new UserService();
+
+        //Act
+        var result = service.AddUser("Jan", null, "kowalski@wp.pl", new DateTime(1980, 1, 1), 1);
 
         //Assert
         Assert.False(result);
