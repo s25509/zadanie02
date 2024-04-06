@@ -2,7 +2,7 @@
 
 namespace LegacyApp
 {
-    public class UserService
+    public class UserService : IUserService
     {
         public bool AddUser(string firstName, string lastName, string email, DateTime dateOfBirth, int clientId)
         {
