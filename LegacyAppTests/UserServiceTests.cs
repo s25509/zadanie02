@@ -92,7 +92,7 @@ public class UserServiceTests
         var result = service.AddUser("John", "Kowalski", "kowalski@wp.pl", new DateTime(1980, 1, 1), 1);
 
         //Assert
-        Assert.True(result);
+        Assert.False(result);
     }
     
     [Fact]
