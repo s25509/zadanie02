@@ -29,7 +29,7 @@ namespace LegacyApp
         /// <returns>Client's credit limit</returns>
         internal int GetCreditLimit(string lastName, DateTime dateOfBirth)
         {
-            int randomWaitingTime = new Random().Next(3000);
+            var randomWaitingTime = new Random().Next(3000);
             Thread.Sleep(randomWaitingTime);
 
             if (_database.ContainsKey(lastName))
