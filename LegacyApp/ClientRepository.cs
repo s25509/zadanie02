@@ -19,10 +19,6 @@ namespace LegacyApp
             {6, new Client{ClientId = 6, Name = "Andrzejewicz", Address = "Warszawa, Koszykowa 52", Email = "andrzejewicz@wp.pl", Type = "NormalClient"}}
         };
         
-        public ClientRepository()
-        {
-        }
-
         /// <summary>
         /// Simulating fetching a client from remote database
         /// </summary>
