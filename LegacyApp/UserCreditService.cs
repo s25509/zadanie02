@@ -9,8 +9,7 @@ namespace LegacyApp
         /// <summary>
         /// Simulating database
         /// </summary>
-        private readonly Dictionary<string, int> _database =
-            new Dictionary<string, int>()
+        private readonly Dictionary<string, int> _database = new()
             {
                 {"Kowalski", 200},
                 {"Malewski", 20000},
