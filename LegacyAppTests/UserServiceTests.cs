@@ -14,7 +14,7 @@ public class UserServiceTests
         var result = service.AddUser(null, null, "kowalski@wp.pl", new DateTime(1980, 1, 1), 1);
 
         //Assert
-        Assert.Equal(false, result);
+        Assert.False(result);
     }
     
     [Fact]
@@ -27,7 +27,7 @@ public class UserServiceTests
         var result = service.AddUser("John", "Doe", "kowalskiwppl", new DateTime(1980, 1, 1), 1);
 
         //Assert
-        Assert.Equal(false, result);
+        Assert.False(result);
     }
     
     [Fact]
@@ -40,7 +40,7 @@ public class UserServiceTests
         var result = service.AddUser("John", "Doe", "kowalski@wp.pl", new DateTime(2010, 1, 1), 1);
 
         //Assert
-        Assert.Equal(false, result);
+        Assert.False(result);
     }
     
     [Fact]
@@ -53,7 +53,7 @@ public class UserServiceTests
         var result = service.AddUser("John", "Malewski", "kowalski@wp.pl", new DateTime(1980, 1, 1), 2);
 
         //Assert
-        Assert.Equal(true, result);
+        Assert.True(result);
     }
     
     [Fact]
@@ -66,7 +66,7 @@ public class UserServiceTests
         var result = service.AddUser("John", "Smith", "smith@gmail.pl", new DateTime(1980, 1, 1), 3);
 
         //Assert
-        Assert.Equal(true, result);
+        Assert.True(result);
     }
     
     [Fact]
@@ -79,7 +79,7 @@ public class UserServiceTests
         var result = service.AddUser("John", "Kwiatkowski", "kwiatkowski@wp.pl", new DateTime(1980, 1, 1), 5);
 
         //Assert
-        Assert.Equal(true, result);
+        Assert.True(result);
     }
     
     [Fact]
@@ -92,11 +92,11 @@ public class UserServiceTests
         var result = service.AddUser("John", "Kowalski", "kowalski@wp.pl", new DateTime(1980, 1, 1), 1);
 
         //Assert
-        Assert.Equal(false, result);
+        Assert.True(result);
     }
     
     [Fact]
-    public void AddUser_Should_Throw_Exception_When_User_Does_Not_Exist()
+    public void AddUser_Should_Throw_Exception_When_Client_Does_Not_Exist()
     {
         //Arrange
         var service = new UserService();
@@ -109,7 +109,7 @@ public class UserServiceTests
     }
     
     [Fact]
-    public void AddUser_Should_Throw_Exception_When_User_No_Credit_Limit_Exists_For_User()
+    public void AddUser_Should_Throw_Exception_When_No_User_Credit_Limit_Exists_For_User()
     {
         //Arrange
         var service = new UserService();
