@@ -75,7 +75,7 @@ namespace LegacyApp
             else
             {
                 user.HasCreditLimit = true;
-                var creditLimit = userCreditService.GetCreditLimit(user.LastName, user.DateOfBirth);
+                var creditLimit = userCreditService.GetCreditLimit(user.LastName);
                 if (client.Type == Constants.CreditTypes.ImportantClient)
                 {
                     creditLimit *= Constants.RegistrationSettings.ImportantClientCreditMultiplier;

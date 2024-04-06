@@ -7,6 +7,6 @@ namespace LegacyApp
     public interface IUserCreditService : IDisposable
     {
         void Dispose();
-        int GetCreditLimit(string lastName, DateTime dateOfBirth);
+        int GetCreditLimit(string lastName);
     }
 }
